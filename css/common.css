@@ -29,6 +29,13 @@ button {
 }
 i:hover {
   color: var(--point_c1);
+  cursor: pointer;
+}
+.fa-circle-plus {
+  transition: 0.3s;
+}
+.fa-circle-plus:hover {
+  transform: rotate(90deg);
 }
 
 /* //////헤더 영역////// */
@@ -200,6 +207,12 @@ main {
   justify-content: space-between;
   font-size: var(--fs3);
   color: #ffffff;
+  position: relative;
+}
+.fb_img {
+  position: absolute;
+  right: 0;
+  bottom: -5%;
 }
 .btn_subscribe {
   width: 120px;
@@ -229,6 +242,7 @@ main {
 .ai_recommend {
   margin-top: 50px;
   padding: 15px;
+  position: relative;
 }
 .sec_title {
   font-size: var(--fs2);
@@ -268,6 +282,7 @@ main {
   padding: 0.25rem;
   display: flex;
   justify-content: center;
+  align-items: center;
   color: white;
   z-index: 10;
 }
@@ -338,12 +353,13 @@ main {
 }
 .wine:hover .pd_info2 {
   color: #ffffff;
+  font-weight: 300;
 }
 
 .wine_detail {
   padding-top: 1.5rem;
   line-height: 1.5rem;
-  width: 80%;
+  width: 83%;
 }
 .wine_detail p span:first-of-type {
   font-size: 0.75rem;
@@ -375,17 +391,24 @@ main {
   background-color: #50cfc9;
 }
 .bar_color2 span:last-of-type::before {
-  background-color: #a3def0;
+  background-color: #88abec;
 }
 .bar_color3 span:last-of-type::before {
   background-color: #a88dd4;
 }
 .bar_color4 span:last-of-type::before {
-  background-color: #d07966;
+  background-color: #c77663;
 }
 .bar_color5 span:last-of-type::before {
-  background-color: #ed6c5a;
+  background-color: #eb503c;
 }
+.bar_color6 span:last-of-type::before {
+  background-color: #c3ae65;
+}
+.bar_color7 span:last-of-type::before {
+  background-color: #58b578;
+}
+
 .p90::before {
   width: 90%;
 }
@@ -394,6 +417,9 @@ main {
 }
 .p75::before {
   width: 75%;
+}
+.p70::before {
+  width: 70%;
 }
 .p55::before {
   width: 55%;
@@ -407,15 +433,38 @@ main {
 .p25::before {
   width: 25%;
 }
+.p15::before {
+  width: 15%;
+}
 .no_tannin {
   color: #828282;
 }
 
-.swiper_product .swiper-button-prev::after,
-.swiper_product .swiper-button-next::after {
+.product-button-prev::after,
+.product-button-next::after {
   color: #000000;
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 0.75rem;
+}
+.ai_recommend .product-button-prev {
+  position: absolute;
+  top: 60%;
+  left: -2rem;
+}
+.ai_recommend .product-button-next {
+  position: absolute;
+  top: 60%;
+  right: -2rem;
+}
+.ai_recommend div.product-pagination {
+  position: absolute;
+  bottom: -1.5rem;
+}
+.ai_recommend .product-pagination .swiper-pagination-bullet-active {
+  background-color: black;
+}
+.ai_recommend .product-pagination span {
+  width: 75px;
+  height: 5px;
+  border-radius: 0;
 }
 
 /* //////와인 카테고리////// */
@@ -444,6 +493,7 @@ main {
 .wine_category .sec_detail {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 0.25rem;
   margin: 0;
 }
@@ -524,7 +574,8 @@ main {
 }
 
 .btn_category button:hover {
-  background-blend-mode: multiply;
+  /* background-blend-mode: multiply; */
+  filter: brightness(50%);
 }
 
 /* //////베스트리뷰////// */
@@ -557,6 +608,7 @@ main {
 }
 .review_item img {
   width: 100%;
+  filter: brightness(70%);
 }
 .review_back {
   background-color: hsla(0, 0%, 21%, 0.644);
@@ -743,7 +795,6 @@ input {
   height: 300px;
   color: #ffffff;
   padding: 50px;
-  position: relative;
 }
 .ft_con {
   max-width: var(--mw);
@@ -754,9 +805,9 @@ input {
 }
 .ft_detail_1 {
   width: 65%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  color: #828282;
+  letter-spacing: -0.48px;
+  line-height: 1.88;
 }
 .ft_detail_1 div {
   height: var(--fs1);
@@ -770,7 +821,8 @@ input {
 }
 .links {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 .links a {
   margin-left: var(--gap2);
@@ -791,9 +843,9 @@ input {
     margin-top: var(--gap3);
     width: 50%;
   }
-  .links a {
+  /* .links a {
     font-size: var(--gap2);
-  }
+  } */
 }
 @media (max-width: 960px) {
   .gnb {
@@ -814,6 +866,12 @@ input {
     justify-content: space-between;
     align-items: center;
     height: 450px;
+  }
+  .fb_img {
+    display: none;
+  }
+  .ai_recommend .product-pagination span {
+    width: 30px;
   }
   .wine_category {
     flex-direction: column;
