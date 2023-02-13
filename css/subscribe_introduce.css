@@ -1,0 +1,264 @@
+@charset 'utf-8';
+
+@import url("https://fonts.googleapis.com/css2?family=Cantora+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cantata+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap");
+:root {
+  --mw: 1400px;
+  --point_c1: #45156e;
+  --gap1: 8px;
+  --gap2: 16px;
+  --gap3: 32px;
+  --fs1: 20px;
+  --fs2: 32px;
+  --fs3: 48px;
+  --swiper-theme-color: #000000;
+  font-family: "Gowun Dodum", sans-serif;
+}
+a {
+  color: inherit;
+}
+
+button {
+  font-family: "Gowun Dodum", sans-serif;
+  cursor: pointer;
+}
+i:hover {
+  color: var(--point_c1);
+  cursor: pointer;
+}
+.fa-circle-plus {
+  transition: 0.3s;
+}
+.fa-circle-plus:hover {
+  transform: rotate(90deg);
+}
+
+/* //////헤더 영역////// */
+.hd {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  height: 100px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9000;
+}
+
+.top_nav {
+  max-width: var(--mw);
+  margin: auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top_nav .logo,
+.top_nav .icons {
+  width: 250px;
+}
+.top_nav img {
+  width: 100%;
+}
+
+.gnb {
+  display: flex;
+}
+.gnb a {
+  display: block;
+  padding: var(--gap1) var(--gap2);
+  font-size: var(--fs1);
+}
+.gnb > li {
+  margin: 0 var(--gap1);
+  width: 120px;
+  position: relative;
+}
+.gnb > li a {
+  transition: 0.3s;
+  text-align: center;
+  position: relative;
+}
+.gnb > li > a {
+  font-weight: bold;
+}
+
+.gnb > li a:hover {
+  color: var(--point_c1);
+  font-weight: 800;
+}
+.gnb > li a::before {
+  content: "";
+  display: block;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  border-radius: var(--gap3);
+  background-color: var(--point_c1);
+  position: absolute;
+  transition: 0.8s;
+}
+.gnb > li a:hover::before {
+  width: 70%;
+}
+.gnb > li a::after {
+  content: "\f043";
+  font: var(--fa-font-solid);
+  color: var(--point_c1);
+  font-size: var(--gap2);
+  position: absolute;
+  top: -300%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  overflow: hidden;
+}
+.gnb > li a:hover::after {
+  opacity: 0;
+  transition: 0.8s;
+  top: 100%;
+}
+
+.gnb::after {
+  content: "";
+  position: absolute;
+  top: 80px;
+  left: 0;
+  background-color: #f8f7fa;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  z-index: 1;
+  transition: 0.3s;
+}
+.gnb:hover::after {
+  opacity: 1;
+  height: 130px;
+}
+
+.sub {
+  position: absolute;
+  padding-top: 10px;
+  z-index: 2;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.3s;
+  width: 100%;
+}
+.gnb:hover li .sub {
+  opacity: 1;
+}
+.sub li a {
+  font-size: var(--gap2);
+  text-align: center;
+}
+
+.icons {
+  display: flex;
+  justify-content: end;
+}
+.icons button {
+  margin-left: var(--gap2);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+}
+.ham {
+  display: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.icons button:hover,
+.ham:hover {
+  color: var(--point_c1);
+}
+
+/* //////구독상품 영역////// */
+
+.main {
+  background-color: #f8f7fa;
+}
+.subscribe_product {
+  margin-top: 180px;
+  border: 1px solid red;
+  height: 500px;
+  max-width: var(--mw);
+  margin: 180px auto 0;
+}
+.sec_title {
+  font-size: var(--fs2);
+  margin: 0 0 var(--gap1) 5vw;
+  font-weight: bold;
+}
+.sec_detail {
+  font-size: var(--fs1);
+  margin: 0 0 var(--gap3) 5vw;
+  color: #7937b1;
+}
+.sub_grid {
+  display: grid;
+  grid-template-columns: 550px 550px;
+  grid-template-rows: repeat(5, 125px);
+  gap: 35px;
+  justify-content: center;
+}
+.sub_item {
+  border: 1px solid blue;
+  border-radius: var(--gap2);
+  position: relative;
+}
+
+.level {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  z-index: 10;
+}
+.level_y {
+  background-color: #ffcc16;
+  border: 3px solid #f6de5b;
+}
+.level_g {
+  background-color: #3d9c73;
+  border: 3px solid #48c891;
+}
+.level_b {
+  background-color: #3253c9;
+  border: 3px solid #8e9fdc;
+}
+.level_c {
+  background-color: #db1f58;
+  border: 3px solid #ed90ac;
+}
+.level_v {
+  background-color: #954cd2;
+  border: 3px solid #ddb9fc;
+}
+.level_k {
+  background-color: #37303d;
+  border: 3px solid #656268;
+}
+
+/* //////소개 sec1////// */
+.introduce_1 {
+  border: 1px solid v;
+  height: 500px;
+}

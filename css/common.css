@@ -1,9 +1,5 @@
 @charset 'utf-8';
-/* @font-face {
-  font-family: "GangwonEdu_OTFBoldA";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff")
-    format("woff");
-} */
+
 @import url("https://fonts.googleapis.com/css2?family=Cantora+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cantata+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap");
@@ -27,17 +23,14 @@ button {
   font-family: "Gowun Dodum", sans-serif;
   cursor: pointer;
 }
-i:hover {
-  color: var(--point_c1);
-  cursor: pointer;
-}
 .fa-circle-plus {
   transition: 0.3s;
 }
 .fa-circle-plus:hover {
+  color: var(--point_c1);
+  cursor: pointer;
   transform: rotate(90deg);
 }
-
 /* //////헤더 영역////// */
 .hd {
   width: 100%;
@@ -45,6 +38,8 @@ i:hover {
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
   height: 100px;
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 9000;
 }
 
@@ -224,10 +219,17 @@ main {
   align-items: center;
   font-weight: bold;
 }
+.btn_subscribe i {
+  display: none;
+  font-size: var(--fs2);
+}
+
 .btn_subscribe:hover {
   background-color: #828282;
   color: #ffffff;
+  font-weight: 600;
 }
+
 .swiper {
   width: 950px;
 }
@@ -370,6 +372,11 @@ main {
   font-size: 0.75rem;
   display: inline-block;
   width: 65%;
+}
+.wine_detail .text span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .grap {
   display: flex;
@@ -574,7 +581,6 @@ main {
 }
 
 .btn_category button:hover {
-  /* background-blend-mode: multiply; */
   filter: brightness(50%);
 }
 
@@ -660,7 +666,12 @@ main {
   border-radius: var(--fs3);
   background-color: #3a3a3a;
   color: #f5f5f5;
+  transition: 0.3s;
 }
+.magazine_m_button button:hover {
+  filter: brightness(50%);
+}
+
 .magazine_con {
   display: flex;
   margin: 0 15px;
@@ -831,7 +842,19 @@ input {
 .sns_logo a {
   margin-left: var(--gap2);
 }
+
 /* //////반응형////// */
+@media (max-width: 1350px) {
+  .ai_recommend {
+    padding: 3.5rem;
+  }
+  .ai_recommend .product-button-prev {
+    left: 1rem;
+  }
+  .ai_recommend .product-button-next {
+    right: 1rem;
+  }
+}
 @media (max-width: 1200px) {
   .icons {
     display: none;
@@ -843,16 +866,62 @@ input {
     margin-top: var(--gap3);
     width: 50%;
   }
-  /* .links a {
-    font-size: var(--gap2);
-  } */
 }
 @media (max-width: 960px) {
   .gnb {
     display: none;
   }
+  .gnb.on {
+    display: block;
+  }
+  .hd.on {
+    height: auto;
+  }
+  .logo {
+    width: 100%;
+    margin-top: 2rem;
+  }
+  .top_nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .gnb {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-top: 1px solid #82828259;
+    margin-top: var(--gap3);
+  }
+  .gnb > li {
+    width: 100%;
+    border-bottom: 1px solid #82828259;
+  }
+  .gnb > li a::after {
+    display: none;
+  }
+  .gnb > li a::before {
+    transition: 0.3s;
+  }
+  .gnb > li a:hover::before {
+    width: 10%;
+  }
+  .gnb > li {
+    margin: auto;
+  }
+  .sub {
+    display: block;
+    opacity: 1;
+    position: relative;
+  }
+  .gnb::after {
+    display: none;
+  }
+
   .ham {
     display: block;
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
   }
   .banner .swiper.swiper_banner {
     display: none;
@@ -870,6 +939,44 @@ input {
   .fb_img {
     display: none;
   }
+  .btn_subscribe {
+    width: 200px;
+    height: 100px;
+    border-radius: var(--gap1);
+    position: relative;
+    overflow: hidden;
+    font-size: var(--fs1);
+  }
+  .btn_subscribe i {
+    display: block;
+    padding-left: 1rem;
+  }
+  .btn_subscribe span {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .btn_subscribe:hover {
+    background-color: white;
+    color: var(--point_c1);
+  }
+  .btn_subscribe span::before {
+    content: "\f4e3";
+    font: var(--fa-font-solid);
+    font-size: var(--fs2);
+    position: absolute;
+    right: -10%;
+    top: -10%;
+    opacity: 0;
+    transition: 0.3s;
+  }
+  .btn_subscribe:hover ::before {
+    right: 12%;
+    top: 25%;
+    transform: rotate(-45deg);
+    opacity: 1;
+  }
+
   .ai_recommend .product-pagination span {
     width: 30px;
   }
@@ -887,8 +994,13 @@ input {
   .wine_sort {
     margin-top: var(--fs3);
   }
-  .magazine .magazine_con {
-    height: ;
+  .review_item {
+    width: 220px;
+    margin: 0 3px;
+  }
+  .review_con {
+    height: 440px;
+    justify-content: center;
   }
   .magazine_item:nth-of-type(1),
   .magazine_item:nth-of-type(2),
@@ -914,7 +1026,10 @@ input {
   .ft {
     height: 400px;
   }
-  .ft_detail_1 {
-    width: 99%;
+  .ft_detail_2 {
+    justify-content: flex-start;
+  }
+  .ft_detail_2 > div {
+    margin-bottom: var(--gap2);
   }
 }

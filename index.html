@@ -86,7 +86,9 @@
           <span
             ><p>퍼플독<br />정기구독<br />서비스</p></span
           >
-          <button class="btn_subscribe"><span>구독하기</span></button>
+          <button class="btn_subscribe">
+            <span>구독하기<i class="fa-solid fa-wine-glass"></i></span>
+          </button>
           <img
             class="fb_img"
             src="./images/banner/image.png"
@@ -1288,6 +1290,18 @@
         </div>
       </div>
     </footer>
+
+    <!-- ham -->
+    <script>
+      const $ham = document.querySelector(".ham");
+      const $hd = document.querySelector(".hd");
+      const $gnb = document.querySelector(".gnb");
+
+      $ham.addEventListener("click", function () {
+        $gnb.classList.toggle("on");
+        $hd.classList.toggle("on");
+      });
+    </script>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
