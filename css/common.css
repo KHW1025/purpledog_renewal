@@ -270,7 +270,7 @@ main {
 }
 
 .wine {
-  width: 250px;
+  /* width: 250px; */
   position: relative;
 }
 .front {
@@ -977,6 +977,7 @@ input {
   .sec_title {
     display: flex;
     justify-content: center;
+    text-align: center;
   }
   .ai_recommend div.product-pagination {
     bottom: 0;
@@ -1000,13 +1001,15 @@ input {
   .wine_sort {
     margin-top: var(--fs3);
   }
+  .review_con {
+    width: 80%;
+    margin: auto;
+    height: 440px;
+    justify-content: center;
+  }
   .review_item {
     width: 220px;
     margin: 0 0.25rem;
-  }
-  .review_con {
-    height: 440px;
-    justify-content: center;
   }
   .magazine_m_button {
     display: flex;
@@ -1048,7 +1051,7 @@ input {
     width: 40%;
   }
   .ft {
-    height: 400px;
+    height: auto;
   }
   .ft_detail_2 {
     justify-content: flex-start;
