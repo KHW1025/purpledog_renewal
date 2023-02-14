@@ -83,9 +83,11 @@
     <main>
       <section class="banner">
         <div class="fixed_banner">
-          <span
-            ><p>퍼플독<br />정기구독<br />서비스</p></span
-          >
+          <span>
+            <span>퍼플독</span>
+            <span>정기구독</span>
+            <span>서비스</span>
+          </span>
           <button class="btn_subscribe">
             <span>구독하기<i class="fa-solid fa-wine-glass"></i></span>
           </button>
@@ -1202,9 +1204,9 @@
         </span>
         <h3 class="sec_detail">와인을 몰라도 걱정하지 마세요.</h3>
         <div class="magazine_m_button">
-          <button>1분 레슨</button>
-          <button>라이프</button>
-          <button>아트페어</button>
+          <button>1분 레슨<i class="fa-solid fa-book-open"></i></button>
+          <button>라이프<i class="fa-solid fa-people-group"></i></button>
+          <button>아트페어<i class="fa-solid fa-palette"></i></button>
         </div>
         <div class="magazine_con">
           <div class="magazine_item">
@@ -1242,13 +1244,15 @@
           <div class="magazine_item docent">
             <div class="docent_title">Docent</div>
             <div class="docent_detail">
-              <img src="./images/magazine/docent.png" alt="도슨트" />
+              <div class="docent_img">
+                <img src="./images/magazine/docent.png" alt="도슨트" />
+              </div>
               <span>
                 <span>와인</span>
                 <span>도슨트</span>
                 <span>가 읽어주는 와인이야기까지 더해진다면</span>
+                <span>분명 와인에 더 깊이 빠져들게 될 거에요.</span>
               </span>
-              <span>분명 와인에 더 깊이 빠져들게 될 거에요.</span>
               <div class="docent_search">
                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
                 <input
@@ -1326,9 +1330,9 @@
     <script>
       var swiper = new Swiper(".swiper_product", {
         cssMode: true,
-        slidesPerView: 2,
+        slidesPerView: 1,
         spaceBetween: 20,
-        slidesPerGroup: 2,
+        slidesPerGroup: 1,
         navigation: {
           nextEl: ".product-button-next.swiper-button-next",
           prevEl: ".product-button-prev.swiper-button-prev",
@@ -1357,6 +1361,11 @@
             slidesPerView: 3,
             spaceBetween: 20,
             slidesPerGroup: 3,
+          },
+          650: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            slidesPerGroup: 2,
           },
         },
       });
