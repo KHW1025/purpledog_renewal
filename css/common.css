@@ -260,6 +260,10 @@ main {
   margin: 0 0 var(--gap3) var(--gap2);
   color: #828282;
 }
+.ai_recommend .sec_title,
+.ai_recommend .sec_detail {
+  margin-left: 0;
+}
 .swiper_product {
   width: 100%;
   margin-top: var(--gap2);
@@ -923,9 +927,7 @@ input {
   }
   .fixed_banner {
     width: 100%;
-    /* flex-direction: row; */
     justify-content: space-around;
-    /* align-items: center; */
     height: 450px;
   }
   .fixed_banner span {
@@ -1060,6 +1062,11 @@ input {
     margin-bottom: var(--gap2);
   }
 }
+/* @media (max-width: 640px) {
+  .swiper_product {
+    width: 300px;
+  }
+} */
 
 @media (max-width: 380px) {
   .wine_detail {
