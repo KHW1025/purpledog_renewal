@@ -288,10 +288,11 @@ a {
   border-radius: 5px;
   margin-right: 0.5rem;
 }
-.price {
+.price_con {
   font-size: var(--fs1);
   font-weight: bold;
 }
+
 /* //////모달 영역////// */
 
 .subscribe_modal {
@@ -355,7 +356,7 @@ a {
 .text {
   color: #ffffff;
 }
-.x_button {
+.close {
   border-radius: var(--gap1);
   position: absolute;
   top: 1rem;
@@ -374,12 +375,15 @@ a {
   border-radius: var(--gap1);
   background-color: #211c27;
 }
-.modal_detail2 ul {
+
+.check_list > li {
+  display: list-item;
   list-style: disc;
   font-size: 14px;
   line-height: 24px;
   margin-left: 1rem;
 }
+
 .modal_detail3 {
   margin-top: 1.5rem;
   display: flex;
@@ -389,12 +393,12 @@ a {
   display: flex;
   flex-direction: column;
 }
-.modal_detail3 div span:first-of-type {
+.modal_detail3 div > span {
   font-size: 12px;
   color: #8a8a8b;
   margin-bottom: 0.5rem;
 }
-.modal_detail3 div span:last-of-type {
+.modal_detail3 div p {
   color: #ffffff;
 }
 .next_subscribe {

@@ -97,7 +97,7 @@
             <div class="product_item item1">
               <span class="level level_g">G</span>
               <div class="level_con1">
-                <p class="level_name">THE GREEN DOUBLE</p>
+                <p class="level_name" data-name="g">THE GREEN DOUBLE</p>
                 <p class="level_detail">
                   매월 GREEN 등급의 동일한 와인 2병(1+1)이 제공됩니다.
                 </p>
@@ -105,9 +105,9 @@
               <div class="level_con2">
                 <div class="product_detail">
                   <span>와인 2병</span>
-                  <span>6개월</span>
+                  <span class="month">6개월</span>
                 </div>
-                <span class="price">39,000원</span>
+                <p class="price_con"><span class="price">39000</span>원</p>
               </div>
             </div>
             <div class="product_item item2">
@@ -122,9 +122,9 @@
               <div class="level_con2">
                 <div class="product_detail">
                   <span>와인 1병</span>
-                  <span>3개월</span>
+                  <span class="month">3개월</span>
                 </div>
-                <span class="price">39,000원</span>
+                <p class="price_con"><span class="price">39000</span>원</p>
               </div>
             </div>
             <div class="product_item item3">
@@ -138,9 +138,9 @@
               <div class="level_con2">
                 <div class="product_detail">
                   <span>와인 2병</span>
-                  <span>3개월</span>
+                  <span class="month">3개월</span>
                 </div>
-                <span class="price">73,000원</span>
+                <p class="price_con"><span class="price">73000</span>원</p>
               </div>
             </div>
             <div class="product_item item4">
@@ -154,9 +154,9 @@
               <div class="level_con2">
                 <div class="product_detail">
                   <span>와인 3병</span>
-                  <span>3개월</span>
+                  <span class="month">3개월</span>
                 </div>
-                <span class="price">105,000원</span>
+                <p class="price_con"><span class="price">105000</span>원</p>
               </div>
             </div>
             <div class="product_item item5">
@@ -170,9 +170,9 @@
               <div class="level_con2">
                 <div class="product_detail">
                   <span>와인 1병</span>
-                  <span>3개월</span>
+                  <span class="month">3개월</span>
                 </div>
-                <span class="price">73,000원</span>
+                <p class="price_con"><span class="price">73000</span>원</p>
               </div>
             </div>
             <div class="product_item item6">
@@ -186,9 +186,9 @@
               <div class="level_con2">
                 <div class="product_detail">
                   <span>와인 1병</span>
-                  <span>3개월</span>
+                  <span class="month">3개월</span>
                 </div>
-                <span class="price">99,000원</span>
+                <p class="price_con"><span class="price">99000</span>원</p>
               </div>
             </div>
             <div class="product_item item7">
@@ -202,9 +202,9 @@
               <div class="level_con2">
                 <div class="product_detail">
                   <span>와인 1병</span>
-                  <span>3개월</span>
+                  <span class="month">3개월</span>
                 </div>
-                <span class="price">200,000원</span>
+                <p class="price_con"><span class="price">200000</span>원</p>
               </div>
             </div>
             <div class="product_item item8">
@@ -218,9 +218,9 @@
               <div class="level_con2">
                 <div class="product_detail">
                   <span>상담 후 결정</span>
-                  <span>3개월</span>
+                  <span class="month">3개월</span>
                 </div>
-                <span class="price">300,000원</span>
+                <p class="price_con"><span class="price">300000</span>원</p>
               </div>
             </div>
             <div class="product_item item9">
@@ -234,9 +234,9 @@
               <div class="level_con2">
                 <div class="product_detail">
                   <span>상담 후 결정</span>
-                  <span>3개월</span>
+                  <span class="month">3개월</span>
                 </div>
-                <span class="price">500,000원</span>
+                <p class="price_con"><span class="price">500000</span>원</p>
               </div>
             </div>
             <div class="product_item item10">
@@ -250,9 +250,9 @@
               <div class="level_con2">
                 <div class="product_detail">
                   <span>상담 후 결정</span>
-                  <span>3개월</span>
+                  <span class="month">3개월</span>
                 </div>
-                <span class="price">1,000,000원</span>
+                <p class="price_con"><span class="price">1000000</span>원</p>
               </div>
             </div>
           </div>
@@ -268,21 +268,41 @@
             <i class="check_circle"></i>
             <span class="text">&nbsp;&nbsp;아래 내용을 확인했습니다.</span>
           </label>
-          <button class="x_button">X</button>
+          <button class="close">X</button>
         </div>
         <div class="modal_detail2">
-          <ul class="g_check">
-            <li>슬림 패키지로 적용되는 구독 상품입니다.</li>
-            <li>
-              최소 구독 기간 6개월 이전 중단 시 비회원가 45,000원이 적용됩니다.
+          <ul class="check_list">
+            <li class="list1">슬림패키지로 적용되는 구독 상품입니다.</li>
+            <li class="list2">
+              최소 구독 기간
+              <span class="product_month"><!-- 최소 구독기간 들어올곳 --></span>
+              이전 중단 시 비회원가
+              <span class="penalty_price"
+                ><!-- 비회원가 들어올곳(기존금액 + 패널티 금액) --></span
+              >
+              원이 적용됩니다.
             </li>
-            <li>할인받은 금액은 월 6,000원씩 중단 시점에 추가 결제됩니다.</li>
+            <li class="list3">
+              할인받은 금액은 월
+              <span class="penalty"><!-- 패널티 금액 --></span>원씩 중단 시점에
+              추가 결제됩니다.
+            </li>
+            <li class="list4">
+              상담 후 와인 구성이 결정되는 프리미엄 라인입니다.
+            </li>
+            <li class="list5">
+              전문 상담원이 별도로 연락드려 상담 도와드릴 예정입니다.
+            </li>
           </ul>
         </div>
         <div class="modal_detail3">
           <div>
             <span>선택한 구독상품</span>
-            <span>THE GREEN DOUBLE / 39,000원</span>
+            <p>
+              <span class="product_name"><!-- 상품이름 --></span>
+              /
+              <span class="product_price"><!-- 상품가격 --></span>원
+            </p>
           </div>
           <div class="next_subscribe">
             <a href="./subscribe2.html">다음</a>
