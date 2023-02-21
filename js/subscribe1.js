@@ -43,8 +43,8 @@ $product.forEach((item, i) => {
     $month.innerText = LMonth[i].innerText; // 개월
     $penaltyPrice.innerText = (
       Number(LPrice[i].innerText) + LPenalty[i]
-    ).toLocaleString(); // 상품가격 + 패널티 금액
-    $penalty.innerText = LPenalty[i].toLocaleString(); // 패널티 금액
+    ); // 상품가격 + 패널티 금액
+    $penalty.innerText = LPenalty[i]; // 패널티 금액
 
     if (i == 0) {
       list1.style.display = "list-item";
