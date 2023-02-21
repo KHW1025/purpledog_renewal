@@ -834,12 +834,14 @@ input {
 }
 .ft_detail_1 {
   width: 65%;
-  color: #828282;
   letter-spacing: -0.48px;
   line-height: 1.88;
 }
-.ft_detail_1 div {
-  height: var(--fs1);
+.ft_detail_1 span:nth-of-type(2n) {
+  color: #cacaca;
+}
+.ft_detail_1 span:nth-of-type(2n-1) {
+  color: #fafafa;
 }
 .ft_detail_2 {
   height: 100%;
