@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>주문 정보 저장 | purpledog</title>
+    <link rel="stylesheet" href="./css/my_reset.css" />
+    <link rel="icon" href="./images/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./css/subscribe3.css" />
+
+    <script src="./js/subscribe3.js" defer></script>
+  </head>
+  <body>
+    <header class="hd">
+      <div class="top_nav mw">
+        <h1 class="logo">
+          <a href="./index.html"
+            ><img src="./images/purpledog_logo.png" alt="퍼플독_로고"
+          /></a>
+        </h1>
+        <ul class="gnb">
+          <li>
+            <a href="./subscribe_intro.html">정기구독</a>
+            <ul class="sub">
+              <li><a href="./subscribe_intro.html">구독소개</a></li>
+              <li><a href="./subscribe_step.html">구독방법</a></li>
+              <li><a href="./wine_feedback.html">와인피드백</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">와인</a>
+            <ul class="sub">
+              <li><a href="#">와인별</a></li>
+              <li><a href="#">국가별</a></li>
+              <li><a href="#">추천상품</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">커뮤니티</a>
+            <ul class="sub">
+              <li><a href="#">리뷰</a></li>
+              <li><a href="#">매거진</a></li>
+              <li><a href="#">공지사항</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">회사소개</a>
+            <ul class="sub">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Store</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">문의</a>
+            <ul class="sub">
+              <li><a href="#">고객센터</a></li>
+              <li><a href="#">b2b문의</a></li>
+              <li><a href="#">가맹문의</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="icons">
+          <a href="#" class="btn_search">
+            <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+          </a>
+          <a href="#" class="btn_shopping">
+            <i class="fa-solid fa-bag-shopping fa-2x"></i>
+          </a>
+          <a href="#" class="btn_mypage">
+            <i class="fa-solid fa-user fa-2x"></i>
+          </a>
+        </div>
+        <button class="ham">
+          <i class="fa-solid fa-bars fa-3x"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="mw">
+      <section class="order1">
+        <div class="order_route">
+          <p>주문방법</p>
+          <ul class="tap_menu">
+            <li class="menu on">
+              <i class="fa-solid fa-circle-check"></i>계좌이체
+            </li>
+            <li class="menu"><i class="fa-solid fa-circle-check"></i>카드</li>
+          </ul>
+        </div>
+        <div class="oreder_info">
+          <div class="info info1">
+            <p>이름</p>
+            <input type="text" id="name" placeholder="이름 입력" />
+          </div>
+          <div class="info info2">
+            <p>연락처</p>
+            <input type="text" id="phone" placeholder="연락처 입력" />
+          </div>
+          <div class="info info3">
+            <p>주민등록번호</p>
+            <div class="num_con">
+              <span
+                ><input
+                  type="text"
+                  id="f_num"
+                  maxlength="6"
+                  placeholder="주민번호 앞자리"
+              /></span>
+              <span>-</span>
+              <span
+                ><input
+                  type="text"
+                  id="l_num"
+                  maxlength="1"
+                  placeholder="_ * * * * * *"
+              /></span>
+            </div>
+          </div>
+          <div class="info info4">
+            <ul class="tap_content">
+              <li class="list list1 on">
+                <p>은행</p>
+                <select name="" id="bank">
+                  <option value="01">한국은행</option>
+                  <option value="02">산업은행</option>
+                  <option value="03">기업은행</option>
+                  <option value="04">KB국민은행</option>
+                  <option value="05">수협은행</option>
+                  <option value="06">수출입은행</option>
+                  <option value="07">NH농협은행</option>
+                  <option value="08">농축협</option>
+                  <option value="09">우리은행</option>
+                  <option value="10">SC제일은행</option>
+                  <option value="11">한국씨티은행</option>
+                  <option value="12">대구은행</option>
+                  <option value="13">부산은행</option>
+                  <option value="14">광주은행</option>
+                  <option value="15">제주은행</option>
+                  <option value="16">전북은행</option>
+                  <option value="17">경남은행</option>
+                  <option value="18">우체국</option>
+                  <option value="19">하나은행</option>
+                  <option value="20">신한은행</option>
+                  <option value="21">케이뱅크</option>
+                  <option value="22">카카오뱅크</option>
+                </select>
+                <input
+                  type="text"
+                  id="accountNumber"
+                  placeholder="계좌번호 입력"
+                />
+              </li>
+              <li class="list list2">
+                <p>카드</p>
+                <select name="" id="card">
+                  <option value="01">BC카드</option>
+                  <option value="02">KB카드</option>
+                  <option value="03">NH카드</option>
+                  <option value="04">하나SK카드</option>
+                  <option value="05">삼성카드</option>
+                  <option value="06">신한카드</option>
+                  <option value="07">현대카드</option>
+                  <option value="08">롯데카드</option>
+                  <option value="09">우리카드</option>
+                  <option value="10">수협카드</option>
+                  <option value="11">한미카드</option>
+                  <option value="12">씨티카드</option>
+                  <option value="13">신세계한미</option>
+                  <option value="14">신협체크카드</option>
+                  <option value="15">외환카드</option>
+                  <option value="16">제주카드</option>
+                  <option value="17">전북카드</option>
+                  <option value="18">산은캐피탈</option>
+                </select>
+                <div class="card_num">
+                  <input type="text" id="card1" maxlength="4" placeholder="" />
+                  <span> - </span>
+                  <input type="text" id="card1" maxlength="4" placeholder="" />
+                  <span> - </span>
+                  <input type="text" id="card1" maxlength="4" placeholder="" />
+                  <span> - </span>
+                  <input type="text" id="card1" maxlength="4" placeholder="" />
+                </div>
+                <p>유효기간</p>
+                <div class="expiry">
+                  <input
+                    type="text"
+                    id="month"
+                    maxlength="2"
+                    placeholder="05 "
+                  />
+                  <span>월</span>
+                  <input type="text" id="year" maxlength="2" placeholder="22" />
+                  <span>년</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="info info5">
+            <ul class="tap_menu2">
+              <li class="menu2 on">
+                <i class="fa-solid fa-circle-check"></i>1일
+              </li>
+              <li class="menu2">
+                <i class="fa-solid fa-circle-check"></i>10일
+              </li>
+              <li class="menu2">
+                <i class="fa-solid fa-circle-check"></i>20일
+              </li>
+            </ul>
+          </div>
+          <div class="info sign">
+            <p>서명</p>
+            <button class="erase">초기화</button>
+            <canvas class="sign_canvas" style="touch-action: none"></canvas>
+          </div>
+          <div class="page_button">
+            <a href="./subscribe2.html">
+              <i class="fa-solid fa-chevron-left"></i>
+              이전
+            </a>
+            <a href="#">
+              다음
+              <i class="fa-solid fa-chevron-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="ft">
+      <div class="ft_con mw">
+        <div class="ft_detail_1">
+          <span>(주)퍼플독 대표 : </span>
+          <span>박재정</span>
+          <span>법인등록번호 : </span>
+          <span>110111-6925824 </span>
+          <span><br />사업자번호 : </span>
+          <span>215-87-92078</span>
+          <span>사업자번호 (지점, 퍼플독 홍대) : </span>
+          <span>557-85-01671</span>
+          <span><br />통신판매업신고 : </span>
+          <span>2019-서울송파-2561</span>
+          <span>본사 : </span>
+          <span>서울특별시 강남구 테헤란로 521, 파르나스타워 29층</span>
+          <span><br />대표번호 : </span>
+          <span>02 6933-4772 ~ 3</span>
+          <span>운영시간(한국) : </span>
+          <span>09:30 ~ 18:30 주말/공휴일 휴무</span>
+        </div>
+        <div class="ft_detail_2">
+          <div class="links">
+            <a href="#">공지사항</a>
+            <a href="#">FAQ</a>
+            <a href="#">개인정보처리방침</a>
+            <a href="#">이용약관</a>
+          </div>
+          <div class="sns_logo">
+            <a href="https://www.instagram.com/purpledog_official/"
+              ><i class="fa-brands fa-instagram fa-3x"></i
+            ></a>
+            <a href="https://www.facebook.com/WineButlerService"
+              ><i class="fa-brands fa-facebook-f fa-3x"></i
+            ></a>
+          </div>
+          <div class="qr_code">
+            <a href="#"><i class="fa-solid fa-qrcode fa-3x"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

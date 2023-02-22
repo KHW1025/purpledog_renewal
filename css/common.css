@@ -1,12 +1,9 @@
 @charset 'utf-8';
-/* @font-face {
-  font-family: "GangwonEdu_OTFBoldA";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff")
-    format("woff");
-} */
+
 @import url("https://fonts.googleapis.com/css2?family=Cantora+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cantata+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap");
+
 :root {
   --mw: 1400px;
   --point_c1: #45156e;
@@ -18,19 +15,24 @@
   --fs3: 48px;
   --swiper-theme-color: #000000;
   font-family: "Gowun Dodum", sans-serif;
+  word-break: keep-all;
 }
 a {
   color: inherit;
 }
-
-button {
-  font-family: "Gowun Dodum", sans-serif;
-  cursor: pointer;
+.mw {
+  max-width: var(--mw);
+  margin: auto;
+  width: calc(100% - 2rem);
 }
-i:hover {
+
+.fa-circle-plus {
+  transition: 0.3s;
+}
+.fa-circle-plus:hover {
   color: var(--point_c1);
+  transform: rotate(90deg);
 }
-
 /* //////헤더 영역////// */
 .hd {
   width: 100%;
@@ -38,26 +40,29 @@ i:hover {
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
   height: 100px;
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 9000;
 }
 
 .top_nav {
-  max-width: var(--mw);
-  margin: auto;
   height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.top_nav .logo,
-.top_nav .icons {
+.logo,
+.icons {
   width: 250px;
 }
-.top_nav img {
-  width: 100%;
+.logo > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 100px;
 }
-
 .gnb {
   display: flex;
 }
@@ -84,7 +89,7 @@ i:hover {
   color: var(--point_c1);
   font-weight: 800;
 }
-.gnb > li a::before {
+.sub > li a::before {
   content: "";
   display: block;
   left: 50%;
@@ -95,27 +100,27 @@ i:hover {
   border-radius: var(--gap3);
   background-color: var(--point_c1);
   position: absolute;
-  transition: 0.8s;
+  transition: 0.3s;
 }
-.gnb > li a:hover::before {
+.sub > li a:hover::before {
   width: 70%;
 }
-.gnb > li a::after {
+.gnb > li::after {
   content: "\f043";
   font: var(--fa-font-solid);
   color: var(--point_c1);
   font-size: var(--gap2);
   position: absolute;
-  top: -300%;
+  top: -200%;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 1;
+  opacity: 0;
   overflow: hidden;
 }
-.gnb > li a:hover::after {
-  opacity: 0;
-  transition: 0.8s;
-  top: 100%;
+.gnb > li:hover::after {
+  opacity: 1;
+  transition: 0.3s;
+  top: -30%;
 }
 
 .gnb::after {
@@ -157,13 +162,11 @@ i:hover {
   display: flex;
   justify-content: end;
 }
-.icons button {
+.icons a {
   margin-left: var(--gap2);
-  background-color: transparent;
-  border: none;
-  outline: none;
   transition: 0.3s;
 }
+
 .ham {
   display: none;
   background-color: transparent;
@@ -172,7 +175,7 @@ i:hover {
   cursor: pointer;
   transition: 0.3s;
 }
-.icons button:hover,
+.icons a:hover,
 .ham:hover {
   color: var(--point_c1);
 }
@@ -180,8 +183,6 @@ i:hover {
 /* //////배너 영역////// */
 main {
   padding-top: 150px;
-  max-width: var(--mw);
-  margin: auto;
 }
 .banner {
   display: flex;
@@ -200,10 +201,23 @@ main {
   justify-content: space-between;
   font-size: var(--fs3);
   color: #ffffff;
+  position: relative;
+}
+.fixed_banner .fb_detail {
+  display: flex;
+  flex-direction: column;
+}
+.fb_img {
+  position: absolute;
+  right: 0;
+  bottom: -5%;
 }
 .btn_subscribe {
   width: 120px;
   height: 40px;
+  background-color: #ffffff;
+  border: 1px solid #353535;
+  color: #000000;
   border-radius: var(--gap3);
   font-size: var(--fs1);
   display: flex;
@@ -211,15 +225,25 @@ main {
   align-items: center;
   font-weight: bold;
 }
+.btn_subscribe i {
+  display: none;
+  font-size: var(--fs2);
+}
+
 .btn_subscribe:hover {
   background-color: #828282;
   color: #ffffff;
+  font-weight: 600;
 }
-.swiper {
+.swiper_banner .swiper-slide > img:nth-of-type(2) {
+  display: none;
+}
+
+.swiper_banner {
   width: 950px;
 }
-.swiper_banner .swiper-button-prev::after,
-.swiper_banner .swiper-button-next::after {
+.swiper_banner .banner-button-prev::after,
+.swiper_banner .banner-button-next::after {
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.2);
   padding: 0.75rem;
@@ -228,17 +252,21 @@ main {
 /* //////ai 추천와인////// */
 .ai_recommend {
   margin-top: 50px;
-  padding: 15px;
+  position: relative;
 }
 .sec_title {
   font-size: var(--fs2);
-  margin: 0 0 var(--gap1) var(--gap2);
+  margin-bottom: var(--gap1);
   font-weight: bold;
 }
 .sec_detail {
   font-size: var(--fs1);
-  margin: 0 0 var(--gap3) var(--gap2);
+  margin-bottom: var(--gap3);
   color: #828282;
+}
+.ai_recommend .sec_title,
+.ai_recommend .sec_detail {
+  margin-left: 0;
 }
 .swiper_product {
   width: 100%;
@@ -250,7 +278,6 @@ main {
 }
 
 .wine {
-  width: 250px;
   position: relative;
 }
 .front {
@@ -268,6 +295,7 @@ main {
   padding: 0.25rem;
   display: flex;
   justify-content: center;
+  align-items: center;
   color: white;
   z-index: 10;
 }
@@ -338,12 +366,13 @@ main {
 }
 .wine:hover .pd_info2 {
   color: #ffffff;
+  font-weight: 300;
 }
 
 .wine_detail {
-  padding-top: 1.5rem;
+  padding-top: 5%;
   line-height: 1.5rem;
-  width: 80%;
+  width: 83%;
 }
 .wine_detail p span:first-of-type {
   font-size: 0.75rem;
@@ -354,6 +383,11 @@ main {
   font-size: 0.75rem;
   display: inline-block;
   width: 65%;
+}
+.wine_detail .text span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .grap {
   display: flex;
@@ -375,17 +409,24 @@ main {
   background-color: #50cfc9;
 }
 .bar_color2 span:last-of-type::before {
-  background-color: #a3def0;
+  background-color: #88abec;
 }
 .bar_color3 span:last-of-type::before {
   background-color: #a88dd4;
 }
 .bar_color4 span:last-of-type::before {
-  background-color: #d07966;
+  background-color: #c77663;
 }
 .bar_color5 span:last-of-type::before {
-  background-color: #ed6c5a;
+  background-color: #eb503c;
 }
+.bar_color6 span:last-of-type::before {
+  background-color: #c3ae65;
+}
+.bar_color7 span:last-of-type::before {
+  background-color: #58b578;
+}
+
 .p90::before {
   width: 90%;
 }
@@ -394,6 +435,9 @@ main {
 }
 .p75::before {
   width: 75%;
+}
+.p70::before {
+  width: 70%;
 }
 .p55::before {
   width: 55%;
@@ -407,15 +451,41 @@ main {
 .p25::before {
   width: 25%;
 }
+.p15::before {
+  width: 15%;
+}
 .no_tannin {
   color: #828282;
 }
 
-.swiper_product .swiper-button-prev::after,
-.swiper_product .swiper-button-next::after {
+.product-button-prev::after,
+.product-button-next::after {
   color: #000000;
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 0.75rem;
+}
+.ai_recommend .product-button-prev {
+  position: absolute;
+  top: 60%;
+  left: -3rem;
+}
+.ai_recommend .product-button-next {
+  position: absolute;
+  top: 60%;
+  right: -3rem;
+}
+.ai_recommend div.product-pagination {
+  position: absolute;
+  bottom: -1.5rem;
+}
+.banner-pagination .swiper-pagination-bullet-active {
+  background-color: #825aac;
+}
+.product-pagination .swiper-pagination-bullet-active {
+  background-color: black;
+}
+.ai_recommend .product-pagination span {
+  width: 75px;
+  height: 5px;
+  border-radius: 0;
 }
 
 /* //////와인 카테고리////// */
@@ -444,9 +514,12 @@ main {
 .wine_category .sec_detail {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 0.25rem;
   margin: 0;
+  text-align: center;
 }
+
 .wine_country .sec_detail:last-of-type {
   margin-top: 2rem;
   font-weight: 800;
@@ -462,18 +535,28 @@ main {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.btn_category button {
+
+.btn_category a {
+  display: flex;
+  align-items: center;
   width: 49%;
   height: 65px;
   margin-top: 1rem;
   border-radius: 1rem;
   font-size: var(--fs1);
-  color: #ffffff;
+  color: #ececec;
   border: 1px solid #ffffff;
   background-size: cover;
+  background-position: right center;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
-  font-weight: 800;
+  font-weight: 600;
   transition: 0.3s;
+}
+.wine_country a {
+  padding-left: 1rem;
+}
+.wine_sort a {
+  justify-content: center;
 }
 .fr {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
@@ -523,8 +606,8 @@ main {
   background-image: url(../images/sort_button/zero_bg.png);
 }
 
-.btn_category button:hover {
-  background-blend-mode: multiply;
+.btn_category a:hover {
+  filter: brightness(50%);
 }
 
 /* //////베스트리뷰////// */
@@ -542,21 +625,21 @@ main {
   margin-top: 0.25rem;
 }
 .review_con {
-  margin: 0 15px;
   height: 390px;
   overflow: hidden;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
 .review_item {
   width: 185px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   position: relative;
 }
 .review_item img {
   width: 100%;
+  filter: brightness(70%);
 }
 .review_back {
   background-color: hsla(0, 0%, 21%, 0.644);
@@ -600,33 +683,24 @@ main {
 .magazine_m_button {
   display: none;
 }
-.magazine_m_button button {
-  width: 200px;
-  height: 50px;
-  font-size: var(--fs1);
-  margin: 0 var(--gap2);
-  border-radius: var(--fs3);
-  background-color: #3a3a3a;
-  color: #f5f5f5;
-}
+
 .magazine_con {
   display: flex;
-  margin: 0 15px;
 }
-.magazine_item:nth-child(-n + 3) {
-  width: 23%;
+.magazine_item:nth-of-type(1),
+.magazine_item:nth-of-type(2),
+.magazine_item:nth-of-type(3) {
   margin-right: 0.5rem;
+  flex-basis: 23%;
 }
-.mg_front {
-  position: relative;
-  height: 100%;
-}
-.mg_front img {
-  width: 100%;
-  height: 100%;
+.docent {
+  flex-basis: 31%;
 }
 .magazine_item {
   position: relative;
+}
+.mg_front img {
+  width: 100%;
 }
 .front_tilte {
   font-size: var(--fs2);
@@ -638,7 +712,7 @@ main {
   position: absolute;
   top: 5%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -5%);
 }
 .mg_back {
   position: absolute;
@@ -662,7 +736,10 @@ main {
   text-align: center;
   margin: var(--gap2) 0;
 }
-.mg_back button {
+.mg_back a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   bottom: 10%;
   transform: translateY(-10%);
@@ -677,9 +754,8 @@ main {
 .magazine_item:hover .mg_back {
   opacity: 1;
 }
-
-.docent {
-  width: 30%;
+.mg_back a:hover {
+  filter: brightness(50%);
 }
 .docent_title {
   background-color: #d9d9d9;
@@ -690,8 +766,10 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 3px solid hsla(0, 0%, 23%, 0.452);
 }
 .docent_detail {
+  padding: 0.5rem;
   height: 85%;
   background-color: #f5f5f5;
   display: flex;
@@ -699,16 +777,21 @@ main {
   justify-content: center;
   align-items: center;
   font-size: var(--gap2);
-  border-top: 3px solid hsla(0, 0%, 23%, 0.452);
 }
-.docent_detail img {
+.docent_img {
+  width: 50%;
+}
+.docent_img img {
+  width: 100%;
+}
+.docent_detail .docent_intro {
+  display: block;
+  text-align: center;
+  width: 85%;
   margin-top: var(--gap3);
-  width: 65%;
 }
-.docent_detail span:first-of-type {
-  margin-top: var(--fs2);
-}
-.docent_detail span span:nth-of-type(2) {
+
+.docent_detail .docent_intro span:nth-of-type(2) {
   color: #7821bc;
   font-weight: 800;
 }
@@ -716,12 +799,12 @@ main {
 .docent_search {
   margin-top: var(--gap2);
   width: 80%;
-  height: 8%;
   background-color: #ffffff;
   border: 1px solid #828282;
   border-radius: var(--gap1);
   display: flex;
   align-items: center;
+  padding: 0.5rem;
 }
 input {
   font-size: var(--gap2);
@@ -743,23 +826,22 @@ input {
   height: 300px;
   color: #ffffff;
   padding: 50px;
-  position: relative;
 }
 .ft_con {
-  max-width: var(--mw);
-  margin: auto;
   display: flex;
   justify-content: space-between;
   height: 100%;
 }
 .ft_detail_1 {
   width: 65%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  letter-spacing: -0.48px;
+  line-height: 1.88;
 }
-.ft_detail_1 div {
-  height: var(--fs1);
+.ft_detail_1 span:nth-of-type(2n) {
+  color: #cacaca;
+}
+.ft_detail_1 span:nth-of-type(2n-1) {
+  color: #fafafa;
 }
 .ft_detail_2 {
   height: 100%;
@@ -770,50 +852,199 @@ input {
 }
 .links {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 .links a {
   margin-left: var(--gap2);
+  padding: 0.5rem;
+  border-radius: var(--gap1);
   font-size: var(--fs1);
+  transition: 0.3s;
 }
 .sns_logo a {
   margin-left: var(--gap2);
+  transition: 0.3s;
 }
+.links a:hover {
+  background-color: var(--point_c1);
+}
+.sns_logo a:first-of-type:hover {
+  color: #d6249f;
+}
+.sns_logo a:last-of-type:hover {
+  color: #4267b2;
+}
+
 /* //////반응형////// */
-@media (max-width: 1200px) {
+@media (max-width: 1350px) {
+  .ai_recommend {
+    padding: 3.5rem;
+  }
+  .ai_recommend .product-button-prev {
+    left: 1rem;
+  }
+  .ai_recommend .product-button-next {
+    right: 1rem;
+  }
+}
+@media (max-width: 1250px) {
   .icons {
     display: none;
   }
   .mg_back {
     font-size: var(--fs1);
   }
-  .docent_detail img {
-    margin-top: var(--gap3);
-    width: 50%;
-  }
-  .links a {
-    font-size: var(--gap2);
-  }
 }
 @media (max-width: 960px) {
+  .hd.on {
+    height: auto;
+  }
+  .top_nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .gnb {
     display: none;
   }
-  .ham {
-    display: block;
+  .gnb.on {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    border-top: 1px solid #82828259;
+    margin-top: var(--gap3);
   }
-  .banner .swiper.swiper_banner {
+  .gnb.on > li {
+    height: 180px;
+    border-bottom: 1px solid #82828259;
+    padding-top: 1rem 0;
+  }
+  .gnb > li:nth-of-type(1),
+  .gnb > li:nth-of-type(2) {
+    width: 50%;
+  }
+  .gnb > li:nth-of-type(3),
+  .gnb > li:nth-of-type(4),
+  .gnb > li:nth-of-type(5) {
+    width: 33%;
+  }
+  .gnb > li::after {
     display: none;
   }
-  .banner {
+
+  .gnb > li a::before {
+    transition: 0.3s;
+  }
+  .gnb > li a:hover::before {
+    width: 80px;
+  }
+  .gnb > li {
+    padding-top: 0.5rem;
+    margin: auto;
+  }
+  .sub {
     display: block;
+    opacity: 1;
+    position: relative;
+  }
+  .gnb::after {
+    display: none;
+  }
+  .hd.on .icons {
+    display: flex;
+    align-self: flex-end;
+    padding: 1rem;
+  }
+
+  .ham {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+  }
+  .banner {
+    flex-direction: column;
+    height: auto;
   }
   .fixed_banner {
     width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-around;
     height: 450px;
+  }
+  .fixed_banner .fb_detail {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .fixed_banner .fb_detail span {
+    padding-right: var(--gap2);
+  }
+  .btn_subscribe {
+    width: 200px;
+    height: 100px;
+    border-radius: var(--gap1);
+    position: relative;
+    overflow: hidden;
+    font-size: var(--fs1);
+    z-index: 1;
+  }
+  .btn_subscribe i {
+    display: block;
+    padding-left: 1rem;
+  }
+  .btn_subscribe span {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .btn_subscribe:hover {
+    background-color: white;
+    color: var(--point_c1);
+  }
+  .btn_subscribe span::before {
+    content: "\f4e3";
+    font: var(--fa-font-solid);
+    font-size: var(--fs2);
+    position: absolute;
+    right: -10%;
+    top: -10%;
+    opacity: 0;
+    transition: 0.3s;
+  }
+  .btn_subscribe:hover ::before {
+    right: 12%;
+    top: 25%;
+    transform: rotate(-45deg);
+    opacity: 1;
+  }
+  .banner .swiper.swiper_banner {
+    display: block;
+  }
+
+  .swiper_banner {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  .swiper_banner .swiper-slide > img:nth-of-type(1) {
+    display: none;
+  }
+  .swiper_banner .swiper-slide > img:nth-of-type(2) {
+    display: block;
+    width: 100%;
+  }
+  .sec_detail,
+  .sec_title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .ai_recommend div.product-pagination {
+    bottom: 0;
+  }
+  .ai_recommend .product-pagination span {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
   }
   .wine_category {
     flex-direction: column;
@@ -829,34 +1060,94 @@ input {
   .wine_sort {
     margin-top: var(--fs3);
   }
-  .magazine .magazine_con {
-    height: ;
+  .best_review {
+    margin-top: 100px;
   }
-  .magazine_item:nth-of-type(1),
-  .magazine_item:nth-of-type(2),
-  .magazine_item:nth-of-type(3) {
+  .review_con {
+    margin: auto;
+    height: 440px;
+    justify-content: center;
+  }
+  .review_item {
+    width: 220px;
+    margin: 0 0.25rem;
+  }
+  .magazine_con {
+    display: block;
+  }
+  .magazine_item:nth-of-type(1) div,
+  .magazine_item:nth-of-type(2) div,
+  .magazine_item:nth-of-type(3) div {
     display: none;
   }
   .magazine_m_button {
     display: flex;
     justify-content: center;
+    margin: auto;
+    width: 70%;
+    padding: 1rem;
+    font-size: var(--fs1);
+    border-radius: 10px;
+    background-color: #3a3a3a;
+    color: #f5f5f5;
+    transition: 0.3s;
+    margin-bottom: 1rem;
+  }
+  .magazine_m_button:hover {
+    filter: brightness(50%);
   }
   .docent {
-    width: 100%;
     margin-top: var(--gap3);
-    height: 650px;
+    width: 75%;
+    margin: auto;
   }
-  .docent_detail img {
-    margin-top: var(--gap3);
-    width: 45%;
+  .docent_detail {
+    padding: 1rem;
   }
-  .docent_search {
-    width: 60%;
+  .docent_img {
+    width: 35%;
   }
   .ft {
-    height: 400px;
+    height: auto;
   }
   .ft_detail_1 {
-    width: 99%;
+    font-size: 12px;
+  }
+  .ft_detail_2 {
+    justify-content: flex-start;
+  }
+  .ft_detail_2 > div {
+    margin-bottom: var(--gap2);
+  }
+  .links a {
+    font-size: var(--gap1) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .wine_detail {
+    padding-top: 1.5rem;
+    line-height: 1rem;
+  }
+  .hd {
+    height: 80px;
+  }
+  .logo {
+    height: 80px;
+  }
+  .logo > a {
+    height: 80px;
+  }
+  .gnb.on {
+    margin-top: 0;
+  }
+  .ham {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    top: 2rem;
+  }
+  .ham i {
+    font-size: var(--fs1);
   }
 }
