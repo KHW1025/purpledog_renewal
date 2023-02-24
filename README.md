@@ -50,8 +50,8 @@
 ## 4️⃣ 기획 & 설계 시안
 <br>
 
-> - 프레젠테이션 : https://docs.google.com/presentation/d/16ovuonHlqnY3gfDh43weOBTMTdRnkDTt9HtLK9Y5HuY/edit?usp=sharing 
-> - 리뉴얼 기획서(figma) : https://www.figma.com/file/BWQZoQexN3URczmaEMQVhc/%EA%B9%80%ED%98%84%EC%9A%B0_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B801?node-id=0%3A1&t=wfMBdj7DToh2GQbQ-1
+> - 리뉴얼 기획서 (구글 프레젠테이션) : https://docs.google.com/presentation/d/16ovuonHlqnY3gfDh43weOBTMTdRnkDTt9HtLK9Y5HuY/edit?usp=sharing 
+> - 설계 시안 (figma) : https://www.figma.com/file/BWQZoQexN3URczmaEMQVhc/%EA%B9%80%ED%98%84%EC%9A%B0_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B801?node-id=0%3A1&t=wfMBdj7DToh2GQbQ-1
 <br>
 
 
