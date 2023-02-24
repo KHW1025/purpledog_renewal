@@ -8,9 +8,9 @@ $ham.addEventListener("click", function () {
   $hd.classList.toggle("on");
 });
 
-//tap meun - order route
-const $menu = document.querySelectorAll(".tap_menu>li");
-const $content = document.querySelectorAll(".tap_content>li");
+//tab menu - order route
+const $menu = document.querySelectorAll(".tab_menu>li");
+const $content = document.querySelectorAll(".tab_content>li");
 
 $menu.forEach((btn, i) => {
   btn.addEventListener("click", function () {
@@ -26,8 +26,8 @@ $menu.forEach((btn, i) => {
   });
 });
 
-//tap menu - spend day
-const $menu2 = document.querySelectorAll(".tap_menu2>li");
+//tab menu - spend day
+const $menu2 = document.querySelectorAll(".tab_menu2>li");
 
 $menu2.forEach((btn, i) => {
   btn.addEventListener("click", function () {

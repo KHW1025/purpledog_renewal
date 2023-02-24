@@ -188,7 +188,7 @@ a {
   font-size: var(--fs2);
   margin-bottom: 1rem;
 }
-.tap_menu {
+.tab_menu {
   display: flex;
   margin-bottom: 2rem;
 }
@@ -271,7 +271,7 @@ a {
   padding: 0 1rem 0 0;
 }
 
-.tap_menu2 {
+.tab_menu2 {
   display: flex;
   margin-bottom: 2rem;
 }
