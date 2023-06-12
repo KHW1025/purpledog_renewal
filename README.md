@@ -2,7 +2,7 @@
 <img width="800" src="https://github.com/KHW1025/purpledog_renewal/assets/119498531/ab304e33-2dd2-4cac-aef1-05f43b5ef8ef"/>
 
 
-# Purpledog Web Page
+# Purpledog Renewal
 <br>
 
 > **퍼플독 사이트 리뉴얼**
