@@ -1,6 +1,6 @@
-<div align="center">
-<img width="329" alt="image" src="https://user-images.githubusercontent.com/119498531/220550893-3284e0d0-38c3-4267-babc-c77f481fda74.png">
-</div>
+
+<img width="800" src="https://github.com/KHW1025/purpledog_renewal/assets/119498531/ab304e33-2dd2-4cac-aef1-05f43b5ef8ef"/>
+
 
 # Purpledog Web Page
 <br>
